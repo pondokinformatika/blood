@@ -36,7 +36,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="{{route('patients.index')}}">
             <i class="fa fa-hotel"></i> <span>Pasien</span>
             <span class="pull-right-container"></span>
           </a>

@@ -15,6 +15,12 @@ Route::get('/', function () {
     return view('example');
 });
 
+
+Route::prefix('admin')->group(function () {
+	Route::resource('/patients', 'Admin\PatientsCotroller');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
