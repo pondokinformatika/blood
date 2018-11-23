@@ -1,7 +1,7 @@
 <?php 
 $url1 = request()->segment(1);
 $url2 = request()->segment(2);
- ?>
+
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -9,7 +9,7 @@ $url2 = request()->segment(2);
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="{{asset('AdminLTE-2.4.3/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
+          <img src="{{asset('AdminLTE-2.4.4/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Ammar</p>
@@ -44,8 +44,8 @@ $url2 = request()->segment(2);
             <span class="pull-right-container"></span>
           </a>
         </li>
-        <li>
-          <a href="#">
+        <li class=" {{ $url1 == 'provinsi' ? 'active' : '' }} ">
+          <a href=" {{route('provinsi.index')}} ">
             <i class="fa fa-map-marker"></i> <span>Provinsi</span>
             <span class="pull-right-container" ></span>
           </a>

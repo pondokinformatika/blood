@@ -12,14 +12,12 @@
 */
 
 
-
 Route::prefix('admin')->group(function () {
 	Route::resource('/patients', 'Admin\PatientsCotroller');
+	Route::resource('/provinsi', 'Admin\ProvincesController');
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', [
 	'uses'	=>	'Admin\HomeController@index',
