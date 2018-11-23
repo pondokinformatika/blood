@@ -6,7 +6,9 @@ use App\Model\Province;
 
 class ProvinceSeederTable extends Seeder
 {
-    /**
+    /**Province::truncatProvince::truncate();
+		Province::insert([e();
+		Province::insert([
      * Run the database seeds.
      *
      * @return void
