@@ -1,4 +1,7 @@
-
+<?php 
+$url1 = request()->segment(1);
+$url2 = request()->segment(2);
+ ?>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -28,14 +31,14 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li>
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Home</span>
+        <li class=" {{request()->is('/') ? 'active' : ''}} ">
+          <a href=" {{route('home')}} ">
+            <i class="fa fa-home"></i> <span>Home</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
-        <li>
+        <li class=" {{$url2 == 'patients' ? 'active' : ''}} ">
           <a href="{{route('patients.index')}}">
             <i class="fa fa-hotel"></i> <span>Pasien</span>
             <span class="pull-right-container"></span>

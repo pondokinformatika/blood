@@ -12,7 +12,10 @@
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/font-awesome/css/font-awesome.min.css')}}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/Ionicons/css/ionicons.min.css')}}">
+
   <!-- leflet -->
+  <link rel="stylesheet" crossorigin="" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+
   <!-- Datatable -->
   <!-- <link rel="stylesheet" type="text/css" href="{{url('css/datatables.bootstrap.css')}}"> -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/dist/css/AdminLTE.min.css')}}">
@@ -126,11 +129,15 @@
 <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('AdminLTE-2.4.3/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" crossorigin=""></script>
+<script src="http://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
 <!-- SlimScroll -->
 <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE-2.4.3/dist/js/adminlte.min.js')}}"></script>
 <!-- maps -->
-  
+<!-- <script src="/js/leaflet-providers.js"></script> -->
+@yield('script') 
 </body>
 </html>
