@@ -19,8 +19,8 @@ class CreateTablePatients extends Migration
             $table->string('phone', 14);
             $table->integer('blood_type_id');
             $table->integer('province_id');
-            $table->decimal('latitude', 10, 7);
-            $table->decimal('longitude', 10, 7);
+            $table->decimal('latitude', 10, 7)-nullable();
+            $table->decimal('longitude', 10, 7)-nullable();
             $table->timestamps();
         });
     }
