@@ -60,10 +60,10 @@
         @endif
       </div>
 
-      <div class="form-group {{ $errors->has('blood_type_id') ? 'has-error' : '' }}">
+     <div class="form-group {{ $errors->has('blood_type_id') ? 'has-error' : '' }}">
         {!! Form::label('Golongan Darah') !!}
         <span class="text-primary"> *<span>
-        {!! Form::number('blood_type_id', null,  ['class' => 'form-control', 'id' => 'blood_type_id']) !!}
+        {!! Form::select('blood_type_id', $blood, null,  ['class' => 'form-control', 'id' => 'blood_type_id']) !!}
 
         @if ($errors->has('blood_type_id'))
           <span class="help-block">{{ $errors->first('blood_type_id') }}</span>
