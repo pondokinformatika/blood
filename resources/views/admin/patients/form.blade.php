@@ -30,10 +30,10 @@
         @endif
       </div>
 
-      <div class="form-group {{ $errors->has('province_id') ? 'has-error' : '' }}">
+         <div class="form-group {{ $errors->has('province_id') ? 'has-error' : '' }}">
         {!! Form::label('ID Provinsi') !!}
         <span class="text-primary"> *<span>
-        {!! Form::number('province_id', null,  ['class' => 'form-control', 'id' => 'province_id']) !!}
+        {!! Form::select('province_id', $result, null,  ['class' => 'form-control', 'id' => 'province_id', 'minlength' => 2, 'maxlength' => 2]) !!}
 
         @if ($errors->has('province_id'))
           <span class="help-block">{{ $errors->first('province_id') }}</span>
