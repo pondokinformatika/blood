@@ -12,12 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('example');
+    return view('welcome');
 });
 
-Route::prefix('admin')->group(function () {
-	Route::resource('/patients', 'Admin\PatientsCotroller');
-	Route::resource('/provinsi', 'Admin\ProvincesController');
+Route::middleware(['auth'])->group(function () {
+	Route::prefix('admin')->group(function () {
+		Route::resource('/patients', 'Admin\PatientsCotroller');
+		Route::resource('/provinsi', 'Admin\ProvincesController');
+	});
 });
 
 Auth::routes();

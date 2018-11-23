@@ -11,7 +11,7 @@ $url1 = request()->segment(1);
           <img src="{{asset('AdminLTE-2.4.4/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Ammar</p>
+          <p>{{ Auth::user()->name }}</p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
