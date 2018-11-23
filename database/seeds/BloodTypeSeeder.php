@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Model\BloodType;
 
 class BloodTypeSeeder extends Seeder
 {
@@ -11,9 +12,9 @@ class BloodTypeSeeder extends Seeder
      */
     public function run()
     {
-		DB::table('blood_types')->truncate();
+		BloodType::truncate();
 
-        DB::table('blood_types')->insert([
+        BloodType::insert([
         	['name' => 'O'],
 	       	['name' => 'A'],
 	       	['name' => 'B'],
