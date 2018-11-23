@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('example');
 });
+
+Route::prefix('admin')->group(function () {
+	Route::resource('/patients', 'Admin\PatientsCotroller');
+});

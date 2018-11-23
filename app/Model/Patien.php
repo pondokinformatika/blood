@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Model;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Patien extends Model
+{
+    protected $table = 'patients';
+
+    protected $fillable = [
+    	'id', 'name', 'phone', 'blood_type_id', 'province_id', 'longitude', 'latitude'
+    ];
+
+}
