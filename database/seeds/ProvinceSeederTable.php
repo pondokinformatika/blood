@@ -17,8 +17,16 @@ class ProvinceSeederTable extends Seeder
     {
         Province::truncate();
 		Province::insert([
-		      	['name' => 'ACEH'],
-		       	['name' => 'SUMATERA UTARA'],
+		      	[
+		      		'name' => 'ACEH',
+		      		'latitude' => '4.516739',
+		      		'longitude' => '96.981926'
+		      	],
+		       	[
+		       		'name' => 'SUMATERA UTARA',
+		       		'latitude' => null,
+		       		'longitude' => null,
+		       	],
 		       	['name' => 'SUMATERA BARAT'],
 				['name' => 'RIAU'],
 				['name' => 'JAMBI'],
