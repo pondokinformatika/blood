@@ -3,25 +3,19 @@
 @section('title', 'Patients')
 
 @section('content')
+<div class="box">
+  <div class="box-header with-border">
+  </div>
+  <div class="box-body">
+    {!! Form::model($patient, [
+      'method'  => 'PUT',
+      'route'   => ['patients.update', $patient->id],
+      'id'      => 'patient-form'
+    ]) !!}
 
-    <!-- Main content -->
-    <section class="content">
+    @include('admin.patients.form')
 
-      <div class="row">
-        
-        {!! Form::model($patient, [
-          'method'  => 'PUT',
-          'route'   => ['patients.update', $patient->id],
-          'id'      => 'patient-form'
-        ]) !!}
-
-        @include('admin.patients.form')
-
-        {!! Form::close() !!}
-
-      </div>
-
-    </section>
-
-
+    {!! Form::close() !!}
+  </div>
+</div>
 @endsection
