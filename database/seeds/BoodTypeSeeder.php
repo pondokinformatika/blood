@@ -11,9 +11,9 @@ class BoodTypeSeeder extends Seeder
      */
     public function run()
     {
-		DB::table('bood_types')->truncate();
+		DB::table('blood_types')->truncate();
 
-        DB::table('bood_types')->insert([
+        DB::table('blood_types')->insert([
         	['name' => 'O'],
 	       	['name' => 'A'],
 	       	['name' => 'B'],
