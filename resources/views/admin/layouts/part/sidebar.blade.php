@@ -1,4 +1,6 @@
-
+<?php 
+$url1 = request()->segment(1);
+?>
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -41,8 +43,8 @@
             <span class="pull-right-container"></span>
           </a>
         </li>
-        <li>
-          <a href="#">
+        <li class=" {{ $url1 == 'provinsi' ? 'active' : '' }} ">
+          <a href=" {{route('provinsi.index')}} ">
             <i class="fa fa-map-marker"></i> <span>Provinsi</span>
             <span class="pull-right-container" ></span>
           </a>
