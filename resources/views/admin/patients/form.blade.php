@@ -33,7 +33,7 @@
         <div class="form-group {{ $errors->has('province_id') ? 'has-error' : '' }}">
         {!! Form::label('ID Provinsi') !!}
         <span class="text-primary"> *<span>
-        {!! Form::select('province_id', $result, null,  ['class' => 'form-control', 'id' => 'province_id', 'minlength' => 2, 'maxlength' => 2]) !!}
+        {!! Form::select('province_id', $result, null,  ['class' => 'form-control select-provinsi', 'id' => 'province_id', 'minlength' => 2, 'maxlength' => 2], $attlatlong) !!}
 
         @if ($errors->has('province_id'))
           <span class="help-block">{{ $errors->first('province_id') }}</span>
@@ -48,20 +48,26 @@
           <p><strong>Silahkan Pin Lokasi Anda<span class="text-primary"> *<span></strong></p>
       </div>
 
-      <div class="form-group {{ $errors->has('latitude') ? 'has-error' : '' }}">
-        {!! Form::hidden('latitude', null,  ['class' => 'form-control', 'id' => 'latitude']) !!}
+      <div class="row">
+        <div class="col-xs-6">
+          <div class="form-group {{ $errors->has('latitude') ? 'has-error' : '' }}">
+            {!! Form::text('latitude', null,  ['class' => 'form-control', 'id' => 'latitude', 'placeholder' => 'Latitude']) !!}
 
-        @if ($errors->has('latitude'))
-          <span class="help-block">{{ $errors->first('latitude') }}</span>
-        @endif
-      </div>
+            @if ($errors->has('latitude'))
+              <span class="help-block">{{ $errors->first('latitude') }}</span>
+            @endif
+          </div>
+        </div>
 
-      <div class="form-group {{ $errors->has('longitude') ? 'has-error' : '' }}">
-        {!! Form::hidden('longitude', null,  ['class' => 'form-control', 'id' => 'longitude']) !!}
+        <div class="col-xs-6">
+          <div class="form-group {{ $errors->has('longitude') ? 'has-error' : '' }}">
+            {!! Form::text('longitude', null,  ['class' => 'form-control', 'id' => 'longitude', 'placeholder' => 'Longitude']) !!}
 
-        @if ($errors->has('longitude'))
-          <span class="help-block">{{ $errors->first('longitude') }}</span>
-        @endif
+            @if ($errors->has('longitude'))
+              <span class="help-block">{{ $errors->first('longitude') }}</span>
+            @endif
+          </div>
+        </div>
       </div>
 
      <div class="form-group {{ $errors->has('blood_type_id') ? 'has-error' : '' }}">
@@ -119,6 +125,11 @@
       $('#longitude').val(longitude);
 
       });
+$('select').on('change', function () {
+  var lat = $(this).find(':selected').data('latitude');
+  var long = $(this).find(':selected').data('longitude');
+  map.setView([lat, long], 8);
+});
 </script>
 
 @endsection

@@ -33,10 +33,15 @@ class PatientsCotroller extends Controller
     {
         $patient = new Patien();
         $province = Province::orderBy('name', 'asc')->pluck('name', 'id')->toArray();
+        $prov = Province::orderBy('name', 'asc')->get();
         $result = collect($province)->prepend('Silahkan Pilih', 0);
         $blood = BloodType::orderBy('name')->pluck('name', 'id')->toArray();
 
-        return view('admin.patients.create', compact('patient', 'result', 'blood'));
+        $attlatlong = collect($prov)
+                    ->mapWithKeys(function ($item) {
+                        return [$item->id => ['data-latitude' => $item->latitude, 'data-longitude' => $item->longitude]];
+                    })->all();
+        return view('admin.patients.create', compact('patient', 'result', 'blood', 'attlatlong'));
     }
 
     /**
@@ -73,10 +78,16 @@ class PatientsCotroller extends Controller
     {
         $patient = Patien::findOrFail($id);
         $province = Province::orderBy('name', 'asc')->pluck('name', 'id')->toArray();
+        $prov = Province::orderBy('name', 'asc')->get();
         $result = collect($province)->prepend('Silahkan Pilih', 0);
         $blood = BloodType::orderBy('name')->pluck('name', 'id')->toArray();
 
-        return view('admin.patients.edit', compact('patient', 'result', 'blood'));
+        $attlatlong = collect($prov)
+                    ->mapWithKeys(function ($item) {
+                        return [$item->id => ['data-latitude' => $item->latitude, 'data-longitude' => $item->longitude]];
+                    })->all();
+
+        return view('admin.patients.edit', compact('patient', 'result', 'blood', 'attlatlong'));
     }
 
     /**
