@@ -24,6 +24,7 @@ class CreatePendonorsTable extends Migration
             $table->decimal('latitude', 10, 7)->nullable();
             $table->decimal('longitude', 10, 7)->nullable();
             $table->boolean('status')->default(1);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

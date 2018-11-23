@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'pendonor' => [
+            'driver' => 'session',
+            'provider' => 'pendonors',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -68,6 +73,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'pendonors' => [
+            'driver' => 'eloquent',
+            'model' => App\Model\Pendonor::class,
         ],
 
         // 'users' => [

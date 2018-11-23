@@ -17,8 +17,8 @@ class PendonorSeederTable extends Seeder
         Pendonor::truncate();
         Pendonor::insert([
             [
-                'name' => 'kaisan',
-                'email' => 'kaisan@gmail.com',
+                'name' => 'Bilal',
+                'email' => 'bilal@gmail.com',
                 'phone' => '089699633241',
                 'password' => bcrypt('111111'),
                 'province_id' => '4',
@@ -28,8 +28,8 @@ class PendonorSeederTable extends Seeder
                 'status' => '1'
             ],
             [
-                'name' => 'Hello',
-                'email' => rand(1111,9999).'@gmail.com',
+                'name' => 'Ammar',
+                'email' => 'ammar@gmail.com',
                 'phone' => '089699633241',
                 'password' => bcrypt('111111'),
                 'province_id' => '4',

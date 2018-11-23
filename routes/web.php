@@ -26,3 +26,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'MapsController@index')->name('maps');
+
+Route::get('signinPendonor', 'Pendonor\LoginController@showLoginForm')->name('pendonor.login');
+Route::post('signinPendonor', 'Pendonor\LoginController@login');
+
+Route::get('signupPendonor', 'Pendonor\RegisterController@showRegistrationForm')->name('pendonor.register');
+Route::post('signupPendonor', 'Pendonor\RegisterController@register');
+
+Route::middleware(['web', 'pendonor', 'auth:pendonor'])->group(function () {
+	Route::prefix('pendonor')->group(function () {
+		Route::get('home', 'Pendonor\HomeController@index');
+		Route::post('home', 'Pendonor\HomeController@update');
+	});
+});
+Route::post('pendonor/logout', 'Pendonor\LoginController@logout')->name('pendonor.logout');
+
