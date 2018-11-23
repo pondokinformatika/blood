@@ -42,7 +42,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href=" {{route('provinsi.index')}} ">
             <i class="fa fa-map-marker"></i> <span>Provinsi</span>
             <span class="pull-right-container" ></span>
           </a>
