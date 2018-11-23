@@ -128,7 +128,7 @@
 $('select').on('change', function () {
   var lat = $(this).find(':selected').data('latitude');
   var long = $(this).find(':selected').data('longitude');
-  map.setView([lat, long], 8);
+  map.setView([lat, long], 9);
 });
 </script>
 
