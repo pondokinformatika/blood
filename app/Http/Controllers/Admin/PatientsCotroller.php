@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Patien;
 use App\Http\Requests;
+use App\Model\Patien;
+use App\Model\Province;
+use App\Model\BloodType;
 
 class PatientsCotroller extends Controller
 {
@@ -30,8 +32,11 @@ class PatientsCotroller extends Controller
     public function create()
     {
         $patient = new Patien();
+        $province = Province::orderBy('name', 'asc')->pluck('name', 'id')->toArray();
+        $result = collect($province)->prepend('Silahkan Pilih', 0);
+        $blood = BloodType::orderBy('name')->pluck('name', 'id')->toArray();
 
-        return view('admin.patients.create', compact('patient'));
+        return view('admin.patients.create', compact('patient', 'result', 'blood'));
     }
 
     /**
@@ -67,8 +72,11 @@ class PatientsCotroller extends Controller
     public function edit($id)
     {
         $patient = Patien::findOrFail($id);
+        $province = Province::orderBy('name', 'asc')->pluck('name', 'id')->toArray();
+        $result = collect($province)->prepend('Silahkan Pilih', 0);
+        $blood = BloodType::orderBy('name')->pluck('name', 'id')->toArray();
 
-        return view('admin.patients.edit', compact('patient'));
+        return view('admin.patients.edit', compact('patient', 'result', 'blood'));
     }
 
     /**

@@ -13,7 +13,6 @@ class BloodTypeSeeder extends Seeder
     public function run()
     {
 		BloodType::truncate();
-
         BloodType::insert([
         	['name' => 'O'],
 	       	['name' => 'A'],

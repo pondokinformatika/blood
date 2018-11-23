@@ -12,4 +12,9 @@ class Patien extends Model
     	'id', 'name', 'phone', 'blood_type_id', 'province_id', 'longitude', 'latitude'
     ];
 
+    public function blood_type()
+    {
+    	return $this->belongsTo(BloodType::class);
+    }
+
 }

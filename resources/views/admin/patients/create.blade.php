@@ -3,26 +3,13 @@
 @section('title', 'Patients')
 
 @section('content')
+    {!! Form::model($patient, [
+      'method'  => 'POST',
+      'route'   => 'patients.store',
+      'id'      => 'patient-form'
+    ]) !!}
 
-    <!-- Main content -->
-    <section class="content">
+    @include('admin.patients.form')
 
-      <div class="row">
-        
-        {!! Form::model($patient, [
-          'method'  => 'POST',
-          'route'   => 'patients.store',
-          'id'      => 'patient-form'
-        ]) !!}
-
-        @include('admin.patients.form')
-
-        {!! Form::close() !!}
-
-      </div>
-
-    </section>
-    <!-- /.content -->
-  </div>
-
+    {!! Form::close() !!}
 @endsection

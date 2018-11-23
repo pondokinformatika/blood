@@ -3,8 +3,8 @@
   <tr>
     <th width="40">#</th>
     <th>Nama</th>
-    <th>Latitud</th>
-    <th width="200">Longitud</th>
+    <th>Latitude</th>
+    <th width="200">Longitude</th>
     <th>Action</th>
   </tr>
 

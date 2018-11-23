@@ -1,6 +1,7 @@
 <?php 
-$url1 = request()->segment(1);
+  $url2 = request()->segment(2);
 ?>
+
 <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
@@ -30,26 +31,26 @@ $url1 = request()->segment(1);
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-        <li>
+        <li class=" {{ $url2 == 'home' ? 'active' : '' }} ">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Home</span>
             <span class="pull-right-container">
             </span>
           </a>
         </li>
-        <li>
+        <li class=" {{ $url2 == 'patients' ? 'active' : '' }} ">
           <a href="{{route('patients.index')}}">
             <i class="fa fa-hotel"></i> <span>Pasien</span>
             <span class="pull-right-container"></span>
           </a>
         </li>
-        <li class=" {{ $url1 == 'provinsi' ? 'active' : '' }} ">
+        <li  class="{{ $url2 == 'provinsi' ? 'active' : '' }}">
           <a href=" {{route('provinsi.index')}} ">
             <i class="fa fa-map-marker"></i> <span>Provinsi</span>
             <span class="pull-right-container" ></span>
           </a>
         </li>
-        <li> 
+        <li class=" {{ $url2 == 'pendonor' ? 'active' : '' }} "> 
           <a href="#">
             <i class="fa fa-plus-square"></i> <span>Pendonor</span>
             <span class="pull-right-container"></span>

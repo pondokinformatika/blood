@@ -2,7 +2,7 @@
 
 @section('title', 'Tambah Provinsi')
 
-@section('content')
+@section('content') 
       {!! Form::model($provinces, [
         'method'  => 'POST',
         'route'   => 'provinsi.store',

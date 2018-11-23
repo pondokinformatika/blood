@@ -2,7 +2,7 @@
 
 @section('title', 'Edit Provinsi')
 
-@section('content')
+@section('content') 
       {!! Form::model($provinces, [
         'method'  => 'PUT',
         'route'   => ['provinsi.update', $provinces->id],

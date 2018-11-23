@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::middleware(['auth'])->group(function () {
 	Route::prefix('admin')->group(function () {
@@ -24,11 +24,10 @@ Route::middleware(['auth'])->group(function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('signinPendonor', 'Pendonor\LoginController@showLoginForm')->name('pendonor.login');
 Route::post('signinPendonor', 'Pendonor\LoginController@login');
 
 Route::get('signupPendonor', 'Pendonor\RegisterController@showRegistrationForm')->name('pendonor.register');
 Route::post('signupPendonor', 'Auth\RegisterController@register');
-    
+ 
+Route::get('/', 'MapsController@index')->name('maps');
