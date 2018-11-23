@@ -44,7 +44,7 @@
             <span class="pull-right-container"></span>
           </a>
         </li>
-        <li  class="{{ request()->is('admin/provinsi') ? 'active' : '' }}">
+        <li  class="{{ $url2 == 'provinsi' ? 'active' : '' }}">
           <a href=" {{route('provinsi.index')}} ">
             <i class="fa fa-map-marker"></i> <span>Provinsi</span>
             <span class="pull-right-container" ></span>
