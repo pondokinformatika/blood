@@ -14,15 +14,27 @@ class PendonorSeederTable extends Seeder
     public function run()
     {
 
-        DB::table('pendonors')->insert([
-            'name' => 'kaisan',
-            'email' => 'kaisan@gmail.com',
-            'phone' => '089699633241',
-            'password' => bcrypt('111111'),
-            'province_id' => '4',
-            'latitude' => '0.0000000',
-            'longitude' => '0.0000000',
-            'status' => '1',
-        ]);
+        DB::table('pendonors')->insert(
+            [
+                'name' => 'kaisan',
+                'email' => 'kaisan@gmail.com',
+                'phone' => '089699633241',
+                'password' => bcrypt('111111'),
+                'province_id' => '4',
+                'latitude' => '-6.162409',  
+                'longitude' => '106.873916',
+                'status' => '1',
+            ],
+            [
+                'name' => 'mase bilal',
+                'email' => 'bilal@gmail.com',
+                'phone' => '089697633241',
+                'password' => bcrypt('111111'),
+                'province_id' => '4',
+                'latitude' => '5.067384',
+                'longitude' => '96.045092',
+                'status' => '1',
+            ]
+        );
     }
 }

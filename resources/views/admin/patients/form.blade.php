@@ -30,7 +30,7 @@
         @endif
       </div>
 
-         <div class="form-group {{ $errors->has('province_id') ? 'has-error' : '' }}">
+        <div class="form-group {{ $errors->has('province_id') ? 'has-error' : '' }}">
         {!! Form::label('ID Provinsi') !!}
         <span class="text-primary"> *<span>
         {!! Form::select('province_id', $result, null,  ['class' => 'form-control', 'id' => 'province_id', 'minlength' => 2, 'maxlength' => 2]) !!}
@@ -40,10 +40,16 @@
         @endif
       </div>
 
+      <div class="box-header with-border">
+          <div id="map">
+            
+          </div>
+
+          <p><strong>Silahkan Pin Lokasi Anda<span class="text-primary"> *<span></strong></p>
+      </div>
+
       <div class="form-group {{ $errors->has('latitude') ? 'has-error' : '' }}">
-        {!! Form::label('Latitude') !!}
-        <span class="text-primary"> *<span>
-        {!! Form::text('latitude', null,  ['class' => 'form-control', 'id' => 'latitude']) !!}
+        {!! Form::hidden('latitude', null,  ['class' => 'form-control', 'id' => 'latitude']) !!}
 
         @if ($errors->has('latitude'))
           <span class="help-block">{{ $errors->first('latitude') }}</span>
@@ -51,9 +57,7 @@
       </div>
 
       <div class="form-group {{ $errors->has('longitude') ? 'has-error' : '' }}">
-        {!! Form::label('Longitude') !!}
-        <span class="text-primary"> *<span>
-        {!! Form::text('longitude', null,  ['class' => 'form-control', 'id' => 'longitude']) !!}
+        {!! Form::hidden('longitude', null,  ['class' => 'form-control', 'id' => 'longitude']) !!}
 
         @if ($errors->has('longitude'))
           <span class="help-block">{{ $errors->first('longitude') }}</span>
@@ -80,3 +84,41 @@
   </div>
   <!-- /.box -->
 </div>
+
+@section('script')
+  <script>
+  $(document).ready(function () {
+    $('.sidebar-menu').tree()
+  })
+
+
+  var map = L.map('map').setView([-1.502, 116.822], 5);
+
+       L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
+
+      var marker;
+
+      map.on('click', function(e) {
+        var latitude = e.latlng.lat;
+        var longitude =e.latlng.lng;
+
+        if (marker) {
+           map.removeLayer(marker);
+        }
+
+        marker = L.marker([latitude, longitude]).addTo(map)
+           .bindPopup("<b>Nama Kota</b> <br> Alamat Lengkap <br>"
+                       + e.latlng.lat + ", "
+                       + e.latlng.lng)
+           .openPopup();
+
+      $('#latitude').val(latitude);
+      $('#longitude').val(longitude);
+
+      });
+</script>
+
+@endsection
