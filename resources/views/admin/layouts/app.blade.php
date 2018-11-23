@@ -13,11 +13,6 @@
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/bower_components/Ionicons/css/ionicons.min.css')}}">
   <!-- leflet -->
-  <link rel="stylesheet" crossorigin="" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-  <!-- Font Awesome -->
-  <!-- Ionicons -->
-  <!-- Theme style -->
-
   <!-- Datatable -->
   <!-- <link rel="stylesheet" type="text/css" href="{{url('css/datatables.bootstrap.css')}}"> -->
   <link rel="stylesheet" href="{{asset('AdminLTE-2.4.3/dist/css/AdminLTE.min.css')}}">
@@ -92,9 +87,27 @@
   <!-- Left side column. contains the sidebar -->
   @include('admin.layouts.part.sidebar')
   <!-- =============================================== -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Blank page
+        <small>it all starts here</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Examples</a></li>
+        <li class="active">Blank page</li>
+      </ol>
+    </section>
 
+    <!-- Main content -->
+    <section class="content">
+        @yield('content')
+    </section>
+    <!-- /.content -->
+  </div>
   <!-- Content Wrapper. Contains page content -->
-  @yield('content')
   <!-- /.content-wrapper -->
 
   @include('admin.layouts.part.footer')
@@ -115,22 +128,9 @@
 <script src="{{asset('AdminLTE-2.4.3/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
 <!-- SlimScroll -->
 <script src="{{asset('AdminLTE-2.4.3/bower_components/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
-<!-- FastClick -->
-<script src="{{asset('AdminLTE-2.4.3/bower_components/fastclick/lib/fastclick.js')}}"></script><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('AdminLTE-2.4.3/dist/js/adminlte.min.js')}}"></script>
 <!-- maps -->
-<!-- Datatables -->
-<script src="{{asset('AdminLTE-2.4.3/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-
-<!-- AdminLTE for demo purposes -->
-<script src="{{asset('AdminLTE-2.4.3/dist/js/demo.js')}}"></script>
-<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" crossorigin=""></script>
-<script src="http://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="/js/leaflet-providers.js"></script>
   
 </body>
 </html>
