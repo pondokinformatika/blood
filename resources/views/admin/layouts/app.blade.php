@@ -53,11 +53,11 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
-          @include('admin.layouts.part.message')
+          {{-- @include('admin.layouts.part.message') --}}
           <!-- Notifications: style can be found in dropdown.less -->
-          @include('admin.layouts.part.notif')
+          {{-- @include('admin.layouts.part.notif') --}}
           <!-- Tasks: style can be found in dropdown.less -->
-          @include('admin.layouts.part.task')
+          {{-- @include('admin.layouts.part.task') --}}
           <!-- User Account: style can be found in dropdown.less -->
           @include('admin.layouts.part.user')
 
