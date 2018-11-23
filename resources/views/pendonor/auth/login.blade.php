@@ -34,7 +34,7 @@
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
-    <form action="{{ route('login') }}" method="post">
+    <form action="{{ route('pendonor.login') }}" method="post">
       @csrf
       <div class="form-group has-feedback">
         <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
@@ -70,8 +70,8 @@
       </div>
     </form>
 
-    <a href=" {{route('pendonor.login')}} ">Login sebagai Pendonor</a><br>
-    <a href="register.html" class="text-center">Register a new membership</a>
+    <a href="#">I forgot my password</a><br>
+    <a href="{{route('pendonor.register')}}" class="text-center">Register New Account</a>
 
   </div>
   <!-- /.login-box-body -->
