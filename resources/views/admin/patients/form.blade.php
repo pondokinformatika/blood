@@ -1,11 +1,5 @@
 <div class="col-md-9">
   <!-- Default box -->
-  <div class="box">
-
-    <div class="box-header with-border">
-      <h3 class="box-title">{{ $patient->exists ? 'Edit' : 'Tambah' }} Pasien</h3>
-      <span class="text-muted small pull-right">kolom yang memiliki tanda ( * ) wajib diisi!</span>
-    </div>
 
     <!-- box-body -->
     <div class="box-body">
@@ -87,7 +81,6 @@
       <a href="{{ route('patients.index') }}" class="btn btn-default">Batal</a>
     </div>
 
-  </div>
   <!-- /.box -->
 </div>
 

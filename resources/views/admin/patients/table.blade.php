@@ -13,7 +13,7 @@
     <tr>
       <td>{{ $no++ }}</td>
       <td>{{ $patient->name }}</td>
-      <td>{{ $patient->blood_type_id }}</td>
+      <td>{{ $patient->blood_type->name }}</td>
       <td>{{ $patient->phone }}</td>
       <td>
         <form action="{{route('patients.destroy', $patient->id)}}" method="post">
