@@ -51,7 +51,7 @@
           </a>
         </li>
         <li class=" {{ $url2 == 'pendonor' ? 'active' : '' }} "> 
-          <a href="#">
+          <a href="{{route('pendonor.index')}}">
             <i class="fa fa-plus-square"></i> <span>Pendonor</span>
             <span class="pull-right-container"></span>
           </a>
