@@ -108,8 +108,8 @@
       var marker;
 
       map.on('click', function(e) {
-        var latitude = e.latlng.lat;
-        var longitude =e.latlng.lng;
+        var latitude = e.latlng.lat.toFixed(7);
+        var longitude =e.latlng.lng.toFixed(7);
 
         if (marker) {
            map.removeLayer(marker);
@@ -117,8 +117,8 @@
 
         marker = L.marker([latitude, longitude]).addTo(map)
            .bindPopup("<b>Nama Kota</b> <br> Alamat Lengkap <br>"
-                       + e.latlng.lat + ", "
-                       + e.latlng.lng)
+                       + e.latlng.lat.toFixed(7) + ", "
+                       + e.latlng.lng.toFixed(7))
            .openPopup();
 
       $('#latitude').val(latitude);
