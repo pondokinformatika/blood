@@ -55,7 +55,7 @@ class PatientsCotroller extends Controller
     public function store(Requests\PatientsStoreRequest $request)
     {
         // $donor = Pendonor::where('province_id', $request->province_id)->get()
-        // $this->distanceCalculation($request->latitude, $request->longitude)
+        // $this->distanceCalculation($request->latitude, $request->longitude);
         Patien::create($request->all());
 
         return redirect('admin\patients');
