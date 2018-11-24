@@ -84,25 +84,40 @@
     $('.sidebar-menu').tree()
   })
 
+var place = [
+@foreach($donors as $i => $row)
+  @if(($i+1) == $total)
+    [{{$row->latitude}}, {{$row->longitude}}, '{{isset($row->blood_type->name)?$row->blood_type->name:"-"}}']
+  @else
+    [{{$row->latitude}}, {{$row->longitude}}, '{{isset($row->blood_type->name)?$row->blood_type->name:"-"}}'],
+  @endif
+@endforeach
+];
 
-  var map = L.map('map').setView([-1.502, 116.822], 5);
+  var map = L.map('map').setView([-1.501142,120.11035], 5);
 
      L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
       maxZoom: 18,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-     map.on('click', function(e) {
-      var latitude = e.latlng.lat;
-      var longitude =e.latlng.lng;
-    });
+for (var i = 0; i < place.length; i++) {
+  marker = new L.marker([place[i][0], place[i][1]])
+          .bindPopup('Golongan Darah : '+place[i][2])
+          .addTo(map);
+}
+    //  map.on('click', function(e) {
+    //   var latitude = e.latlng.lat;
+    //   var longitude =e.latlng.lng;
+    // });
 
+    {{--
     @foreach($donors as $donor)
 
       L.marker([`{{ $donor->latitude }}`, `{{ $donor->longitude }}`]).addTo(map).bindPopup('<b>{{ $donor->name }}</b><br><center>Golongan Darah <b>{{$donor->blood_type_id}}</b><button class="btn btn-primary">action</button></center>').openPopup();
 
     @endforeach
-
+    --}}
 </script>
 </body>
 </html>

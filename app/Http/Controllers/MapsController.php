@@ -14,9 +14,9 @@ class MapsController extends Controller
      */
     public function index()
     {
-        $donors = Pendonor::orderBy('created_at', 'desc')->get();
-
-        return view('maps.pendonor', compact('donors'));
+        $donors = Pendonor::whereNotNull('latitude')->orWhereNotNull('longitude')->orderBy('id', 'desc')->get();
+        $total = count($donors);
+        return view('maps.pendonor', compact('donors', 'total'));
     }
 
     /**
