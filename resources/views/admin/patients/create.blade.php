@@ -3,7 +3,13 @@
 @section('title', 'Patients')
 
 @section('content')
-    {!! Form::model($patient, [
+<div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">{{ $patient->exists ? 'Edit' : 'Tambah' }} Pasien</h3>
+      <span class="text-muted small pull-right">kolom yang memiliki tanda ( * ) wajib diisi!</span>
+    </div>
+    <div class="box-body">
+      {!! Form::model($patient, [
       'method'  => 'POST',
       'route'   => 'patients.store',
       'id'      => 'patient-form'
@@ -12,4 +18,8 @@
     @include('admin.patients.form')
 
     {!! Form::close() !!}
+    </div>
+    <!-- /.box-body -->
+        <!-- /.box-footer-->
+</div>
 @endsection

@@ -68,3 +68,7 @@
     <span class="help-block">{{ $errors->first('blood_type_id') }}</span>
   @endif
 </div>
+
+<div class="box-footer">
+  <button type="submit" class="btn btn-primary" id="save-btn">{{ $pendonor->exists ? 'Perbarui' : 'Simpan' }}</button>
+</div>

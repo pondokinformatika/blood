@@ -19,6 +19,7 @@ Route::middleware(['auth'])->group(function () {
 	Route::prefix('admin')->group(function () {
 		Route::resource('/patients', 'Admin\PatientsCotroller');
 		Route::resource('/provinsi', 'Admin\ProvincesController');
+		Route::resource('/pendonor', 'Admin\PendonorController');
 	});
 });
 
