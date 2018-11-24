@@ -22,11 +22,17 @@ class HomeController extends Controller
         $id = Auth::user()->id;
         $pendonor = Pendonor::findOrFail($id);
         $province = Province::orderBy('name', 'asc')->pluck('name', 'id')->toArray();
+        $prov = Province::orderBy('name', 'asc')->get();
         $result = collect($province)->prepend('Silahkan Pilih', 0);
         $blood = BloodType::orderBy('name')->pluck('name', 'id')->toArray();
-        
+        $type = collect($blood)->prepend('Silahkan Pilih', 0);
 
-        return view('pendonor.home.index', compact('pendonor', 'result', 'blood', 'attlatlong'));
+        $attlatlong = collect($prov)
+                    ->mapWithKeys(function ($item) {
+                        return [$item->id => ['data-latitude' => $item->latitude, 'data-longitude' => $item->longitude]];
+                    })->all();
+        
+        return view('pendonor.home.index', compact('pendonor', 'result', 'blood', 'attlatlong', 'type'));
     }
 
     /**
@@ -67,16 +73,16 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $pendonor = Pendonor::findOrFail($id);
-        $province = Province::orderBy('name', 'asc')->pluck('name', 'id')->toArray();
-        $result = collect($province)->prepend('Silahkan Pilih', 0);
-        $blood = BloodType::orderBy('name')->pluck('name', 'id')->toArray();
+    // public function edit($id)
+    // {
+    //     $pendonor = Pendonor::findOrFail($id);
+    //     $province = Province::orderBy('name', 'asc')->pluck('name', 'id')->toArray();
+    //     $result = collect($province)->prepend('Silahkan Pilih', 0);
+    //     $blood = BloodType::orderBy('name')->pluck('name', 'id')->toArray();
 
 
-        return view('pendonor.home.index', compact('pendonor', 'result', 'blood', 'attlatlong'));
-    }
+    //     return view('pendonor.home.index', compact('pendonor', 'result', 'blood', 'attlatlong'));
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -90,7 +96,7 @@ class HomeController extends Controller
         $id = Auth::user()->id;
         Pendonor::findOrFail($id)->update($request->all());
 
-        return redirect('pendonor\home');
+        return redirect('pendonor/home');
     }
 
     /**

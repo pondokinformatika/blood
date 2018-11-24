@@ -7,7 +7,7 @@
   </div>
   <div class="box-body">
     {!! Form::model($pendonor, [
-      'method'  => 'PUT',
+      'method'  => 'POST',
       'route'   => ['pendonor.update'],
       'id'      => 'pendonor-form'
     ]) !!}

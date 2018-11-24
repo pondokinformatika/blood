@@ -9,7 +9,7 @@ class Pendonor extends Authenticatable
 {
 
     protected $fillable = [
-        'name', 'email', 'password','province_id', 'blood_type_id'
+        'name', 'email', 'password','province_id', 'blood_type_id', 'latitude', 'longitude'
     ];
     
     protected $hidden = [

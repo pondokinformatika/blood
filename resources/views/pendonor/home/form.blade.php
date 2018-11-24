@@ -32,7 +32,7 @@
 <div class="form-group">
   {!! Form::label('ID Provinsi') !!}
   <span class="text-primary"> *<span>
-  {!! Form::select('province_id', $result, null,  ['class' => 'form-control', 'id' => 'province_id', 'minlength' => 0, 'maxlength' => 0]) !!}
+  {!! Form::select('province_id', $result, null,  ['class' => 'form-control', 'id' => 'province_id', 'minlength' => 0, 'maxlength' => 0], $attlatlong) !!}
 
   @if ($errors->has('province_id'))
     <span class="help-block">{{ $errors->first('province_id') }}</span>
@@ -72,7 +72,7 @@
 <div class="form-group {{ $errors->has('blood_type_id') ? 'has-error' : '' }}">
   {!! Form::label('Golongan Darah') !!}
   <span class="text-primary"> *<span>
-  {!! Form::select('blood_type_id', $blood, null,  ['class' => 'form-control', 'id' => 'blood_type_id']) !!}
+  {!! Form::select('blood_type_id', $type, null,  ['class' => 'form-control', 'id' => 'blood_type_id']) !!}
 
   @if ($errors->has('blood_type_id'))
     <span class="help-block">{{ $errors->first('blood_type_id') }}</span>
@@ -89,13 +89,23 @@
     $('.sidebar-menu').tree()
   })
 
-
+@if(!empty($pendonor->latitude) && !empty($pendonor->longitude))
+  var map = L.map('map').setView([{{$pendonor->latitude}}, {{$pendonor->longitude}}], 13);
+@else
   var map = L.map('map').setView([-1.502, 116.822], 5);
-
+@endif
        L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       }).addTo(map);
+
+@if(!empty($pendonor->latitude) && !empty($pendonor->longitude))
+  L.marker([{{$pendonor->latitude}}, {{$pendonor->longitude}}]).addTo(map)
+           .bindPopup("<b>Nama Kota</b> <br> Alamat Lengkap <br>"
+                       + "{{$pendonor->latitude}}, "
+                       + "{{$pendonor->longitude}}")
+           .openPopup();
+@endif
 
       var marker;
 

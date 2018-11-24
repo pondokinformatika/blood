@@ -67,7 +67,7 @@
      <div class="form-group {{ $errors->has('blood_type_id') ? 'has-error' : '' }}">
         {!! Form::label('Golongan Darah') !!}
         <span class="text-primary"> *<span>
-        {!! Form::select('blood_type_id', $blood, null,  ['class' => 'form-control', 'id' => 'blood_type_id']) !!}
+        {!! Form::select('blood_type_id', $type, null,  ['class' => 'form-control', 'id' => 'blood_type_id']) !!}
 
         @if ($errors->has('blood_type_id'))
           <span class="help-block">{{ $errors->first('blood_type_id') }}</span>
@@ -91,12 +91,23 @@
   })
 
 
+@if(isset($patient->latitude) && isset($patient->longitude))
+  var map = L.map('map').setView([{{$patient->latitude}}, {{$patient->longitude}}], 13);
+@else
   var map = L.map('map').setView([-1.502, 116.822], 5);
-
+@endif
        L.tileLayer('http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
         maxZoom: 18,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       }).addTo(map);
+
+@if(isset($patient->latitude) && isset($patient->longitude))
+  L.marker([{{$patient->latitude}}, {{$patient->longitude}}]).addTo(map)
+           .bindPopup("<b>Nama Kota</b> <br> Alamat Lengkap <br>"
+                       + "{{$patient->latitude}}, "
+                       + "{{$patient->longitude}}")
+           .openPopup();
+@endif
 
       var marker;
 
@@ -123,6 +134,7 @@ $('select').on('change', function () {
   var long = $(this).find(':selected').data('longitude');
   map.setView([lat, long], 9);
 });
+
 </script>
 
 @endsection

@@ -36,7 +36,7 @@ Route::post('signupPendonor', 'Pendonor\RegisterController@register');
 
 Route::middleware(['web', 'pendonor', 'auth:pendonor'])->group(function () {
 	Route::prefix('pendonor')->group(function () {
-		Route::get('home', 'Pendonor\HomeController@index')->name('pendonor.index');
+		Route::get('home', 'Pendonor\HomeController@index')->name('pendonor.home');
 		Route::post('home', 'Pendonor\HomeController@update')->name('pendonor.update');
 	});
 });
