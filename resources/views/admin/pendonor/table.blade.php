@@ -4,6 +4,7 @@
     <th width="40">#</th>
     <th width="200">Nama Pendonor</th>
     <th>Golongan Darah</th>
+    <th>Provinsi</th>
     <th>No Telepon</th>
     <th width="150">Action</th>
   </tr>
@@ -13,7 +14,8 @@
     <tr>
       <td>{{ $no++ }}</td>
       <td>{{ $pendonor->name }}</td>
-      <td>{{ $pendonor->blood_type_id }}</td>
+      <td>{{ $pendonor->blood_type->name }}</td>
+      <td>{{ $pendonor->provinsi->name }}</td>
       <td>{{ $pendonor->phone }}</td>
       <td>
         <form action="{{route('pendonor.destroy', $pendonor->id)}}" method="post">
