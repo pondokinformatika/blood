@@ -27,7 +27,7 @@ class Pendonor extends Authenticatable
         return $this->belongsTo(BloodType::class);
     }
 
-    public function provinsi()
+    public function province()
     {
         return $this->belongsTo(Province::class);
     }

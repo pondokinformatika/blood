@@ -14,8 +14,8 @@
     <tr>
       <td>{{ $no++ }}</td>
       <td>{{ $pendonor->name }}</td>
-      <td>{{ $pendonor->blood_type->name }}</td>
-      <td>{{ $pendonor->provinsi->name }}</td>
+      <td>{{ isset($pendonor->blood_type->name)?$pendonor->blood_type->name:'-' }}</td>
+      <td>{{ isset($pendonor->province->name)?$pendonor->province->name:'-' }}</td>
       <td>{{ $pendonor->phone }}</td>
       <td>
         <form action="{{route('pendonor.destroy', $pendonor->id)}}" method="post">
