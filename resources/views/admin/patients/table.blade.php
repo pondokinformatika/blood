@@ -3,6 +3,7 @@
   <tr>
     <th width="40">#</th>
     <th width="200">Nama Pasien</th>
+    <th>Provinsi</th>
     <th>Golongan Darah</th>
     <th>No Telepon</th>
     <th width="150">Action</th>
@@ -13,7 +14,8 @@
     <tr>
       <td>{{ $no++ }}</td>
       <td>{{ $patient->name }}</td>
-      <td>{{ $patient->blood_type->name }}</td>
+      <td>{{ isset($patient->province->name)?$patient->province->name:'-' }}</td>
+      <td>{{ isset($patient->blood_type->name)?$patient->blood_type->name:'-' }}</td>
       <td>{{ $patient->phone }}</td>
       <td>
         <form action="{{route('patients.destroy', $patient->id)}}" method="post">
