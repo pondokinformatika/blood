@@ -6,84 +6,48 @@
   <title>Home|Maps</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
-  <link rel="stylesheet" href="{{ asset('AdminLTE-2.4.4/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css">
   <link rel="stylesheet" crossorigin="" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="{{ asset('AdminLTE-2.4.4/bower_components/font-awesome/css/font-awesome.min.css') }}">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="{{ asset('AdminLTE-2.4.4/bower_components/Ionicons/css/ionicons.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('AdminLTE-2.4.4/dist/css/AdminLTE.min.css') }}">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="{{ asset('AdminLTE-2.4.4/dist/css/skins/_all-skins.min.css') }}">
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
+  <link rel="stylesheet" href="https://getbootstrap.com/docs/4.1/examples/pricing/pricing.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
   <style type="text/css">
-    #map {
-      height: 670px;
-      width: 100%;
-    }
-    .nav {
-        height: 50px;
+      #map {
+        height: 600px;
         width: 100%;
-        background: #c4c4c4;
-    }
-    .nav ul li {
-        float: right;
-
-    }
-    .wrapper-header {
-        width: 95%;
-        margin: auto;
-        background: #c4c4c4;
-    }
-    .glyphicon {
-        font-size: 19px;
-    }
-    .font-login {
-        font-size: 19px;
-    }
+      }
   </style>
 </head>
 <body>
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <h5 class="my-0 mr-md-auto font-weight-normal">deBlood</h5>
+  <nav class="my-2 my-md-0 mr-md-3">
+    <a class="p-2 text-dark" href="{{url('login')}}">Pendonor</a>
+    <a class="p-2 text-dark" href="{{url('signinPendonor')}}"">Pasien</a>
+    <!-- <a class="p-2 text-dark" href="#">Support</a>
+    <a class="p-2 text-dark" href="#">Pricing</a> -->
+  </nav>
+  <!-- <a class="btn btn-outline-primary" href="#">Sign up</a> -->
+</div>
+
+<div class="container-fluid">
+
+  <div id="map" class="wrapper-header">
+            
+  </div>
+</div>
 <!-- Site wrapper -->
 <div class="wrapper">
-
   
-      <div id="map" class="wrapper-header">
-          
-      </div>
+      
 
 </div>
 <!-- jQuery 3 -->
 <script src="{{ asset('AdminLTE-2.4.4/bower_components/jquery/dist/jquery.min.js') }}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('AdminLTE-2.4.4/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<!-- SlimScroll -->
-<script src="{{ asset('AdminLTE-2.4.4/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
-<!-- FastClick -->
-<script src="{{ asset('AdminLTE-2.4.4/bower_components/fastclick/lib/fastclick.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('AdminLTE-2.4.4/dist/js/adminlte.min.js') }}"></script>
 <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" crossorigin=""></script>
 <script src="http://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('AdminLTE-2.4.4/dist/js/demo.js') }}"></script>
 <script type="text/javascript">
-  $(document).ready(function () {
-    $('.sidebar-menu').tree()
-  })
-
 var place = [
 @foreach($donors as $i => $row)
   @if(($i+1) == $total)
@@ -111,13 +75,6 @@ for (var i = 0; i < place.length; i++) {
     //   var longitude =e.latlng.lng;
     // });
 
-    {{--
-    @foreach($donors as $donor)
-
-      L.marker([`{{ $donor->latitude }}`, `{{ $donor->longitude }}`]).addTo(map).bindPopup('<b>{{ $donor->name }}</b><br><center>Golongan Darah <b>{{$donor->blood_type_id}}</b><button class="btn btn-primary">action</button></center>').openPopup();
-
-    @endforeach
-    --}}
 </script>
 </body>
 </html>
