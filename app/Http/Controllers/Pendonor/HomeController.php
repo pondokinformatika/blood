@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Pendonor;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests;
+use App\Model\Pendonor;
+use App\Model\Province;
+use App\Model\BloodType;
 
 class HomeController extends Controller
 {
@@ -57,7 +61,12 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pendonor = Pendonor::findOrFail($id);
+        $province = Province::orderBy('name', 'asc')->pluck('name', 'id')->toArray();
+        $result = collect($province)->prepend('Silahkan Pilih', 0);
+        $blood = BloodType::orderBy('name')->pluck('name', 'id')->toArray();
+
+        return view('pendonor.home.index', compact('pendonor', 'result', 'blood'));
     }
 
     /**
@@ -67,9 +76,11 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Requests\PendonorUpdateRequest $request, $id)
     {
-        //
+        Pendonor::findOrFail($id)->update($request->all());
+
+        return redirect('pendonor\home');
     }
 
     /**
