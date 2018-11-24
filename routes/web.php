@@ -42,3 +42,19 @@ Route::middleware(['web', 'pendonor', 'auth:pendonor'])->group(function () {
 });
 Route::post('pendonor/logout', 'Pendonor\LoginController@logout')->name('pendonor.logout');
 
+Route::get('test', function() {
+	$data = array("msisdn" => "085872893723", "content" => "hello bilal");                                                                    
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);   
+	curl_setopt($ch, CURLINFO_HEADER_OUT, true);                                                                   
+	curl_setopt($ch, CURLOPT_POST, true);                                                                     
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);                                                                  
+	curl_setopt($ch, CURLOPT_HTTPHEADER, array(                                                                          
+		    'Authorization: Bearer 3139b6ef1295bb8d262258106a18ac29',
+		    'X-MainAPI-Senderid: TELKOM',                                                                                
+		    'Accept: application/json' 
+		)                                             
+	);                                                                                                                   
+	$result = curl_exec($ch);
+	curl_close($ch);
+	dd($result);
+});
