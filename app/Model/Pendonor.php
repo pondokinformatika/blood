@@ -20,17 +20,6 @@ class Pendonor extends Authenticatable
     {
     	return $this->belongsTo(BloodType::class);
     }
-    // protected $fillable =
-    // [
-    // 	'id', 'name', 'email', 'password', 
-    // 	'phone', 'province_id', 'latitude', 
-    // 	'longitude', 'status', 'created_at'
-    // ];
-
-    public function blood_type()
-    {
-        return $this->belongsTo(BloodType::class);
-    }
 
     public function province()
     {
