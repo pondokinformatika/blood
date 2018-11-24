@@ -6,7 +6,15 @@
     <h3 class="box-title">Blank Box</h3>
   </div>
   <div class="box-body">
-    The great content goes here
+    {!! Form::model($pendonor, [
+      'method'  => 'PUT',
+      'route'   => ['pendonor.update'],
+      'id'      => 'pendonor-form'
+    ]) !!}
+
+    @include('pendonor.home.form')
+
+    {!! Form::close() !!}
   </div>
   <!-- /.box-body -->
 </div>
