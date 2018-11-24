@@ -24,8 +24,9 @@ class HomeController extends Controller
         $province = Province::orderBy('name', 'asc')->pluck('name', 'id')->toArray();
         $result = collect($province)->prepend('Silahkan Pilih', 0);
         $blood = BloodType::orderBy('name')->pluck('name', 'id')->toArray();
+        
 
-        return view('pendonor.home.index', compact('pendonor', 'result', 'blood'));
+        return view('pendonor.home.index', compact('pendonor', 'result', 'blood', 'attlatlong'));
     }
 
     /**
@@ -73,7 +74,8 @@ class HomeController extends Controller
         $result = collect($province)->prepend('Silahkan Pilih', 0);
         $blood = BloodType::orderBy('name')->pluck('name', 'id')->toArray();
 
-        return view('pendonor.home.index', compact('pendonor', 'result', 'blood'));
+
+        return view('pendonor.home.index', compact('pendonor', 'result', 'blood', 'attlatlong'));
     }
 
     /**

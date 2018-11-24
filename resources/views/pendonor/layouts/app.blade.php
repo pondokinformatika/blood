@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="{{ asset('AdminLTE-2.4.4/bower_components/font-awesome/css/font-awesome.min.css') }}">
   <!-- Ionicons -->
   <link rel="stylesheet" href="{{ asset('AdminLTE-2.4.4/bower_components/Ionicons/css/ionicons.min.css') }}">
+  <link rel="stylesheet" crossorigin="" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+  
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('AdminLTE-2.4.4/dist/css/AdminLTE.min.css') }}">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -126,5 +128,8 @@
 <script src="{{ asset('AdminLTE-2.4.4/bower_components/fastclick/lib/fastclick.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('AdminLTE-2.4.4/dist/js/adminlte.min.js') }}"></script>
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" crossorigin=""></script>
+<script src="http://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+@yield('script')
 </body>
 </html>
