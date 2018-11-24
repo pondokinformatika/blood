@@ -15,6 +15,11 @@ class Pendonor extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function blood_type()
+    {
+    	return $this->belongsTo(BloodType::class);
+    }
     // protected $fillable =
     // [
     // 	'id', 'name', 'email', 'password', 

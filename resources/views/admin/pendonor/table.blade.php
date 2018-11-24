@@ -13,7 +13,7 @@
     <tr>
       <td>{{ $no++ }}</td>
       <td>{{ $pendonor->name }}</td>
-      <td>{{ $pendonor->blood_type_id }}</td>
+      <td>{{ $pendonor->blood_type->name }}</td>
       <td>{{ $pendonor->phone }}</td>
       <td>
         <form action="{{route('pendonor.destroy', $pendonor->id)}}" method="post">
