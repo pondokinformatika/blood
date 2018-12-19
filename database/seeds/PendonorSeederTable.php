@@ -37,6 +37,17 @@ class PendonorSeederTable extends Seeder
                 'latitude' => '0.160059',
                 'longitude' => '113.595239',
                 'status' => '1'
+            ],
+            [
+                'name' => 'Samuel',
+                'email' => 'samuel@gmail.com',
+                'phone' => '089699633241',
+                'password' => bcrypt('111111'),
+                'province_id' => '8',
+                'blood_type_id' => '3',
+                'latitude' => '-4.544497', 
+                'longitude' => '104.885960',
+                'status' => '1'
             ]
         ]);
     }
